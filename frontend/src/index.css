@@ -1,0 +1,170 @@
+:root {
+  --crm-navy: #16224a;
+  --crm-blue: #2f5fdc;
+  --crm-blue-dark: #24439e;
+  --crm-bg: #f4f6fb;
+  --crm-border: #e3e7f0;
+  --crm-text: #1f2433;
+  --crm-text-muted: #6b7280;
+}
+
+body {
+  margin: 0;
+  background: var(--crm-bg);
+  color: var(--crm-text);
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+}
+
+/* ---- Auth pages (Login / Register) ---- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+}
+
+.auth-brand-panel {
+  flex: 1;
+  background: linear-gradient(160deg, var(--crm-navy) 0%, var(--crm-blue-dark) 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 4rem;
+}
+
+.auth-brand-panel h1 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.auth-brand-panel p {
+  color: #cfd8f5;
+  font-size: 1.05rem;
+  max-width: 420px;
+}
+
+.auth-form-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 2rem;
+}
+
+.auth-form-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-form-card h2 {
+  font-weight: 700;
+  color: var(--crm-navy);
+  margin-bottom: 0.25rem;
+}
+
+.auth-form-card .subtitle {
+  color: var(--crm-text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--crm-text);
+}
+
+.form-control:focus {
+  border-color: var(--crm-blue);
+  box-shadow: 0 0 0 0.2rem rgba(47, 95, 220, 0.15);
+}
+
+.btn-crm-primary {
+  background: var(--crm-blue);
+  border-color: var(--crm-blue);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+}
+
+.btn-crm-primary:hover {
+  background: var(--crm-blue-dark);
+  border-color: var(--crm-blue-dark);
+  color: #fff;
+}
+
+.auth-switch-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.auth-switch-link a {
+  color: var(--crm-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---- Dashboard ---- */
+.dashboard-navbar {
+  background: var(--crm-navy);
+}
+
+.dashboard-navbar .navbar-brand,
+.dashboard-navbar .nav-link {
+  color: #fff !important;
+}
+
+.dashboard-container {
+  padding: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header h3 {
+  font-weight: 700;
+  color: var(--crm-navy);
+  margin: 0;
+}
+
+.agent-table-card {
+  background: #fff;
+  border: 1px solid var(--crm-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.agent-table thead {
+  background: var(--crm-bg);
+}
+
+.agent-table th {
+  color: var(--crm-text-muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.status-badge-active {
+  background: #e3f6ea;
+  color: #1a8245;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+}
+
+.status-badge-inactive {
+  background: #fdeaea;
+  color: #c22b2b;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+}
