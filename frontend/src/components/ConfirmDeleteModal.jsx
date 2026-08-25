@@ -2,7 +2,7 @@ export default function ConfirmDeleteModal({ show, agentName, onCancel, onConfir
   if (!show) return null;
 
   return (
-    <div className="modal d-block" tabIndex="-1" style={{ background: 'rgba(0,0,0,0.5)' }}>
+    <div className="modal d-block agent-modal" tabIndex="-1" style={{ background: 'rgba(0,0,0,0.5)' }}>
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
@@ -13,10 +13,10 @@ export default function ConfirmDeleteModal({ show, agentName, onCancel, onConfir
             Are you sure you want to delete <strong>{agentName}</strong>? This action cannot be undone.
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-outline-secondary" onClick={onCancel}>
+            <button type="button" className="btn btn-outline-secondary rounded-pill px-3" onClick={onCancel}>
               Cancel
             </button>
-            <button type="button" className="btn btn-danger" onClick={onConfirm}>
+            <button type="button" className="btn btn-danger rounded-pill px-3" onClick={onConfirm}>
               Delete
             </button>
           </div>

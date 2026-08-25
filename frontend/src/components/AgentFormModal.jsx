@@ -38,7 +38,7 @@ export default function AgentFormModal({ show, onClose, onSave, agent }) {
   }
 
   return (
-    <div className="modal d-block" tabIndex="-1" style={{ background: 'rgba(0,0,0,0.5)' }}>
+    <div className="modal d-block agent-modal" tabIndex="-1" style={{ background: 'rgba(0,0,0,0.5)' }}>
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
@@ -54,7 +54,7 @@ export default function AgentFormModal({ show, onClose, onSave, agent }) {
                 <input
                   type="text"
                   name="name"
-                  className="form-control"
+                  className="form-control pill-input"
                   value={form.name}
                   onChange={handleChange}
                   placeholder="Agent full name"
@@ -65,7 +65,7 @@ export default function AgentFormModal({ show, onClose, onSave, agent }) {
                 <input
                   type="email"
                   name="email"
-                  className="form-control"
+                  className="form-control pill-input"
                   value={form.email}
                   onChange={handleChange}
                   placeholder="agent@example.com"
@@ -76,7 +76,7 @@ export default function AgentFormModal({ show, onClose, onSave, agent }) {
                 <input
                   type="tel"
                   name="phone"
-                  className="form-control"
+                  className="form-control pill-input"
                   value={form.phone}
                   onChange={handleChange}
                   placeholder="9876543210"
@@ -84,17 +84,17 @@ export default function AgentFormModal({ show, onClose, onSave, agent }) {
               </div>
               <div className="mb-3">
                 <label className="form-label">Status</label>
-                <select name="status" className="form-select" value={form.status} onChange={handleChange}>
+                <select name="status" className="form-select pill-input" value={form.status} onChange={handleChange}>
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
                 </select>
               </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-outline-secondary" onClick={onClose}>
+              <button type="button" className="btn btn-outline-secondary rounded-pill px-3" onClick={onClose}>
                 Cancel
               </button>
-              <button type="submit" className="btn btn-crm-primary">
+              <button type="submit" className="btn btn-pill-primary" style={{ width: 'auto' }}>
                 {agent ? 'Save Changes' : 'Add Agent'}
               </button>
             </div>

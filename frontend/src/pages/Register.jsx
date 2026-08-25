@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
+import Logo from '../components/Logo';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -12,6 +13,7 @@ export default function Register() {
     password: '',
     confirmPassword: '',
   });
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
@@ -65,14 +67,10 @@ export default function Register() {
 
   return (
     <div className="auth-page">
-      <div className="auth-brand-panel d-none d-md-flex">
-        <h1>Solace CRM</h1>
-        <p>Create an account to start managing your agents and customer relationships.</p>
-      </div>
       <div className="auth-form-panel">
         <div className="auth-form-card">
-          <h2>Create account</h2>
-          <p className="subtitle">Register to get started</p>
+          <h2>Create your account</h2>
+          <p className="subtitle">Register to get started with Alphagnito</p>
 
           {error && <div className="alert alert-danger py-2">{error}</div>}
           {success && <div className="alert alert-success py-2">{success}</div>}
@@ -84,22 +82,22 @@ export default function Register() {
                 type="text"
                 id="fullName"
                 name="fullName"
-                className="form-control"
+                className="form-control pill-input"
                 value={form.fullName}
                 onChange={handleChange}
                 placeholder="John Doe"
               />
             </div>
             <div className="mb-3">
-              <label className="form-label" htmlFor="email">Email Address</label>
+              <label className="form-label" htmlFor="email">Email address</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                className="form-control"
+                className="form-control pill-input"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="you@example.com"
+                placeholder="name@example.com"
               />
             </div>
             <div className="mb-3">
@@ -108,7 +106,7 @@ export default function Register() {
                 type="tel"
                 id="mobileNumber"
                 name="mobileNumber"
-                className="form-control"
+                className="form-control pill-input"
                 value={form.mobileNumber}
                 onChange={handleChange}
                 placeholder="9876543210"
@@ -116,15 +114,25 @@ export default function Register() {
             </div>
             <div className="mb-3">
               <label className="form-label" htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className="form-control"
-                value={form.password}
-                onChange={handleChange}
-                placeholder="At least 6 characters"
-              />
+              <div className="password-field-wrap">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  name="password"
+                  className="form-control pill-input"
+                  value={form.password}
+                  onChange={handleChange}
+                  placeholder="At least 6 characters"
+                />
+                <button
+                  type="button"
+                  className="password-toggle-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                  tabIndex={-1}
+                >
+                  {showPassword ? '🙈' : '👁'}
+                </button>
+              </div>
             </div>
             <div className="mb-3">
               <label className="form-label" htmlFor="confirmPassword">Confirm Password</label>
@@ -132,13 +140,13 @@ export default function Register() {
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
-                className="form-control"
+                className="form-control pill-input"
                 value={form.confirmPassword}
                 onChange={handleChange}
                 placeholder="Re-enter your password"
               />
             </div>
-            <button type="submit" className="btn btn-crm-primary w-100" disabled={loading}>
+            <button type="submit" className="btn btn-pill-primary" disabled={loading}>
               {loading ? 'Registering...' : 'Register'}
             </button>
           </form>
@@ -146,6 +154,12 @@ export default function Register() {
           <div className="auth-switch-link">
             Already have an account? <Link to="/login">Log in</Link>
           </div>
+        </div>
+      </div>
+
+      <div className="auth-brand-panel d-none d-md-flex">
+        <div className="logo-wrap">
+          <Logo size={140} />
         </div>
       </div>
     </div>
